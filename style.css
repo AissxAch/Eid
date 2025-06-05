@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
+
+
+body {
+    background: linear-gradient(-45deg, #1e3a8a, #4c1d95, #0f172a, #001f3f);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    height: 130vh;
+    overflow: hidden;
+    font-family: "Edu NSW ACT Cursive", cursive;
+    color: #fef3c7;
+    text-align: center;
+    position: relative;
+}
+
+.lanterns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.lantern {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(to bottom, #f59e0b, #d97706);
+    border-radius: 15% 15% 40% 40%;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+    transform-origin: top center;
+    animation: sway 3s ease-in-out infinite alternate;
+}
+
+.lantern::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #b45309;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.lantern::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    background: #b45309;
+    transform: translateX(-50%);
+    border-radius: 20%;
+}
+
+.lantern-1 {
+    top: 10%;
+    left: 10%;
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+.lantern-2 {
+    top: 5%;
+    left: 30%;
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+}
+.lantern-3 {
+    top: 12%;
+    left: 55%;
+    animation-duration: 4.5s;
+    animation-delay: 1s;
+}
+.lantern-4 {
+    top: 8%;
+    left: 75%;
+    animation-duration: 3.8s;
+    animation-delay: 0.2s;
+}
+.lantern-5 {
+    top: 6%;
+    left: 90%;
+    animation-duration: 4.2s;
+    animation-delay: 0.7s;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#greeting {
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.7);
+    animation: fadeInScale 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.message {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+.moon-star {
+    position: relative;
+    margin: 2.5rem auto 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+.crescent {
+    width: 60px;
+    height: 60px;
+    background: #fef3c7;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(50% at 60% 40%);
+    filter: drop-shadow(0 0 8px rgba(255, 223, 0, 0.6));
+    animation: floatMoon 3s ease-in-out infinite;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background: #fef3c7;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    filter: drop-shadow(0 0 6px rgba(255, 223, 0, 0.7));
+    animation: glowStar 2s ease-in-out infinite alternate;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatMoon {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes glowStar {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(255, 223, 0, 0.4));
+    }
+    100% {
+        filter: drop-shadow(0 0 12px rgba(255, 223, 0, 1));
+    }
+}
+
+.rainbow-text {
+    animation: colorShift 4s infinite alternate;
+}
+
+@keyframes colorShift {
+    0% {
+        color: #fef3c7;
+    }
+    25% {
+        color: #f472b6;
+    }
+    50% {
+        color: #60a5fa;
+    }
+    75% {
+        color: #34d399;
+    }
+    100% {
+        color: #fef3c7;
+    }
+}
+
+.lantern {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(to bottom, #f59e0b, #d97706);
+    border-radius: 15% 15% 40% 40%;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+    transform-origin: top center;
+    animation: sway 6s infinite ease-in-out;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-5deg);
+        animation-timing-function: ease-out;
+    }
+    50% {
+        transform: rotate(5deg);
+        animation-timing-function: ease-in;
+    }
+}
+
+.lantern-1 {
+    top: 10%;
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+.lantern-2 {
+    top: 5%;
+    left: 30%;
+    animation-duration: 7s;
+    animation-delay: 0.5s;
+}
+.lantern-3 {
+    top: 12%;
+    left: 55%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+.lantern-4 {
+    top: 8%;
+    left: 75%;
+    animation-duration: 7.6s;
+    animation-delay: 0.2s;
+}
+.lantern-5 {
+    top: 6%;
+    left: 90%;
+    animation-duration: 8.4s;
+    animation-delay: 0.7s;
+}
